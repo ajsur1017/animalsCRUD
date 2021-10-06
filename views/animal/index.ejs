@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div>
+            <a href="/user/logout"><button style="color: red">Logout</button></a><br>
+            <a href="/animal/new"><button>Add New Animal</button></a>
+           <% for(animal of animal) { %>
+            <article>
+                <!-- injects new page onto current page with HTMX -->
+                <h2 id="link" hx-get="/animal/<%= animal._id %>"
+                    hx-trigger="click"
+                    hx-target="div"
+                    hx-swap="innerHTML"
+                    >
+                    <%= animal.name %> - <%= animal.extinct %>
+                </h2></a>
+            </article>
+            <% } %>
+        </div>
+    </main>
+</body>
+
+</html>

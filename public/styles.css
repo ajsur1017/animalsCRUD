@@ -1,0 +1,11 @@
+#link {
+    cursor: pointer
+}
+#link:hover {
+    color: #b00b69
+}
+button {
+    background-color: grey;
+    border-color: orange;
+    margin: 5px;
+}

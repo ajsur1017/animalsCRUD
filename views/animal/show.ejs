@@ -1,0 +1,23 @@
+<!-- additions on artilce tag are with AlpinJS -->
+<article x-data="{showTools: false, id: '<%= animal._id %>'}">
+    <a href="/animal"><button>Back</button></a>
+
+    <button x-on:click="id = '<%= animal.name %>'">Hide ID#</button>
+
+    <h1 x-text="id"></h1>
+
+    <h2>
+        <%= animal.name %> - <%= animal.extinct ? "Extinct" : "Not Extinct" %>
+    </h2>
+    <h3>
+        Location: <%= animal.location %> <br>
+        Life Expectancy: <%= animal.lifeExpectancy %>
+    </h3>
+    <button x-on:click="showTools = !showTools">Show Options</button>
+    <div x-show="showTools">
+        <a href="/animal/<%= animal._id %>/edit"><button>Edit</button></a>
+        <form action="/animal/<%= animal._id %>?_method=DELETE " method="post">
+            <input type="submit" value="Delete" style="color: red" />
+        </form>
+    </div>
+</article>
